@@ -1,0 +1,2 @@
+# tcrspeed
+quick string comparison
