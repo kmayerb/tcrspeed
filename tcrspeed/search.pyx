@@ -42,7 +42,8 @@ cpdef lv_rect2(list svec1, list svec2 , int n1, int n2):
 
 	for i in range(N1):
 		for j in range(N2):
-			ld = levenshtein(c_arr1[i],c_arr2[j])
-			mv[i,j] = ld 
+			if j>i:
+				ld = levenshtein(c_arr1[i],c_arr2[j])
+				mv[i,j] = ld 
 
 	return mv
