@@ -29,3 +29,20 @@ cpdef lv_rect(str s, list svec , int n):
 		mv[i] = ld 
 
 	return mv
+
+
+cpdef lv_rect2(list svec1, list svec2 , int n1, int n2):
+
+	cdef char **c_arr1 = to_cstring_array(svec1)
+	cdef char **c_arr2 = to_cstring_array(svec2)
+ 	
+	cdef int N1 = n1
+	cdef int N2 = n2
+	cdef int[:,:] mv = np.zeros([N1,N2], dtype = np.intc)
+
+	for i in range(N1):
+		for j in range(N2):
+			ld = levenshtein(c_arr1[i],c_arr2[j])
+		mv[i,j] = ld 
+
+	return mv
